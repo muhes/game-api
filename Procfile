@@ -1,1 +1,1 @@
-web: node index.js
+web: node node-api-postgres/index.js
