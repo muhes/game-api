@@ -16,8 +16,8 @@ app.use(
 app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' })
   })
-
-  app.listen(process.env.port || port, () => {
+// port is dynamically assigned by heroku
+  app.listen(process.env.PORT || port, () => {
     console.log(`App running on port ${port}.`)
   })
 
