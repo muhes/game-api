@@ -17,7 +17,7 @@ app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' })
   })
 
-  app.listen(port, () => {
+  app.listen(process.env.port || port, () => {
     console.log(`App running on port ${port}.`)
   })
 
