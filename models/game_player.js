@@ -11,11 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      game_player.hasOne(models.room, {foreignKey: 'room_id'})
+      game_player.hasOne(models.room, {foreignKey: 'roomId'})
     }
   };
   game_player.init({
-    player_id: DataTypes.INTEGER
+    name: DataTypes.STRING,
+    roomId: DataTypes.INTEGER
+
   }, {
     sequelize,
     modelName: 'game_player',

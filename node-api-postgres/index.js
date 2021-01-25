@@ -32,7 +32,7 @@ app.get('/', (request, response) => {
 
   //app.get('/users', db.getUsers)
   app.get('/users', function(req,res){
-    model.game_player.findAll({attributes: ['id']})
+    model.game_player.findAll({})
     .then((result)=> {
       res.status(200).send(result)
     })
@@ -40,12 +40,25 @@ app.get('/', (request, response) => {
       res.status(400).send(error)
     })
   })
+
+  app.post('/users/room', function(req,res){
+    model.game_player.findAll({ where: {
+      roomId: req.body.roomId
+    }, })
+    .then((result)=> {
+      res.status(200).send(result)
+    })
+    .catch((error)=>{
+      res.status(400).send(error)
+    })
+  })
+
   //app.post('/users', db.createUser)
   app.post('/users', function(req,res){
-    const player_id = req.body.name
-    console.log(player_id)
+    const name = req.body.name
+    console.log()
     //model.game_player.create({player_id: parseInt(req.body.player_id), room_id: parseInt(req.body.room_id), host: false})
-    model.game_player.create({player_id: 12, roomId: 1234})
+    model.game_player.create({name: name, roomId: req.body.roomId})
     //game_player.findOrCreate({player_id: parseInt(req.body.player_id), room_id: parseInt(req.body.room_id), host: false})
     .then((result)=> {
       res.status(200).send(result)

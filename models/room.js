@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   room.init({
-    room_id: DataTypes.INTEGER
+    roomId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'room',

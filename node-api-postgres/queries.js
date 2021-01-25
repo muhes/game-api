@@ -25,7 +25,7 @@ const getUsers = (request, response) => {
     console.log(name)
     console.log("room ",room)
   
-    pool.query('INSERT INTO players (name, room) VALUES ($1, $2)', [name, room])
+    pool.query('INSERT INTO game_players (name, room) VALUES ($1, $2)', [name, room])
     .then((results)=>{
         console.log(results['rows'])
         console.log(results['fields'])
